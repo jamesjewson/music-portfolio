@@ -409,10 +409,14 @@
 $(".reveal").addClass("blue")
 
 
+$('#OurPresentationWillBeginShortly').click(function(){
 
+	alert("works")
+    // load_track = $(this).attr('data-location');//gets me the url of the new track
 
+    // change_track(load_track);// function to change the track of the loaded audio player without page refresh preferred...
 
-
+});
 
 
 
