@@ -398,105 +398,20 @@
 			
 
 
+$('#lauraSuite').click(function(){
+
+		// $(".pdfObject").hide()
+		if($(".pdfObject").hasClass("seeHide")){
+			$(".pdfObject").removeClass("seeHide")
+		}else	
+			$(".pdfObject").addClass("seeHide")
 
 
-//Scroll Through Articles
-
-// If scolled to bottom of page && location.hash == "" || "#", then $main._show(location.hash.ARTICLEHASH) && close all other articles
-//If scrolled to bottom && location.hash == "#intro", then etc.... 
-
-
-$(".reveal").addClass("blue")
-
-
-$('#OurPresentationWillBeginShortly').click(function(){
-
-	alert("works")
     // load_track = $(this).attr('data-location');//gets me the url of the new track
 
     // change_track(load_track);// function to change the track of the loaded audio player without page refresh preferred...
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let totalScrollDown = 0;
-// let scrollBuffer;
-// $(window).on("wheel", (event) => {
-//   totalScrollDown += event.originalEvent.deltaY;
-//   console.log(totalScrollDown);
-//   let currentLocation;
-//   clearTimeout(scrollBuffer);
-//   scrollBuffer = setTimeout(() => {
-// 	if (window.location.href.split("#")[1]) {
-// 	  currentLocation = window.location.href.split("#")[1];
-// 	}
-// 	if (totalScrollDown < 0) {
-// 	  totalScrollDown = 0;
-// 	}
-// 	if (totalScrollDown > 6000) {
-// 	  totalScrollDown = 6000;
-// 	}
-// 	if (totalScrollDown < 200) {
-// 	  window.location.href = "#";
-// 	}
-// 	if (totalScrollDown >= 200 && totalScrollDown < 1200) {
-// 		setTimeout(() => {
-// 			if (currentLocation != "intro") {
-// 				window.location.href = "#intro";
-// 				totalScrollDown = 200
-// 			  }		
-// 		}, 100);
-	  
-// 	}
-// 	if (totalScrollDown >= 1200 && totalScrollDown < 2200) {
-// 		setTimeout(() => {
-// 			if (currentLocation != "work") {
-// 				window.location.href = "#work";
-// 				totalScrollDown = 1200
-// 			  }		
-// 		}, 100);
-	  
-// 	}
-// 	if (totalScrollDown >= 2200 && totalScrollDown < 3800) {
-// 		setTimeout(() => {
-// 			if (currentLocation != "about") {
-// 				window.location.href = "#about";
-// 				totalScrollDown = 2200
-// 			  }		
-// 		}, 100);
-	  
-// 	}
-// 	if (totalScrollDown >= 3800 && totalScrollDown < 5200) {
-// 		setTimeout(() => {
-// 			if (currentLocation != "contact") {
-// 				window.location.href = "#contact";
-// 				totalScrollDown = 3800
-// 			  }		
-// 		}, 100);
-	  
-// 	}
-// 	if (totalScrollDown >= 5200) {
-// 		if (currentLocation != "#") {
-// 		  window.location.href = "#";
-// 		  setTimeout(() => {
-// 			  totalScrollDown = 0
-// 		  }, 100);
-// 		}
-// 	  }
-//   }, 100);
-// })
 
 
 		// Initialize.
@@ -513,3 +428,102 @@ $('#OurPresentationWillBeginShortly').click(function(){
 					});
 
 })(jQuery);
+
+
+
+// Audio Player
+// Possible improvements:
+// - Change timeline and volume slider into input sliders, reskinned
+// - Change into Vue or React component
+// - Be able to grab a custom title instead of "Music Song"
+// - Hover over sliders to see preview of timestamp/volume change
+
+const audioPlayer = document.querySelector(".audio-player");
+const audio = new Audio(
+	//   Place Audio URL Here
+  "https://feeds.soundcloud.com/stream/1277956924-james-jewson-584932371-piano-suite-for-laura-mvt-1.mp3"
+);
+//credit for song: Adrian kreativaweb@gmail.com
+
+console.dir(audio);
+
+audio.addEventListener(
+  "loadeddata",
+  () => {
+    audioPlayer.querySelector(".time .length").textContent = getTimeCodeFromNum(
+      audio.duration
+    );
+    audio.volume = .75;
+  },
+  false
+);
+
+//click on timeline to skip around
+const timeline = audioPlayer.querySelector(".timeline");
+timeline.addEventListener("click", e => {
+  const timelineWidth = window.getComputedStyle(timeline).width;
+  const timeToSeek = e.offsetX / parseInt(timelineWidth) * audio.duration;
+  audio.currentTime = timeToSeek;
+}, false);
+
+//click volume slider to change volume
+const volumeSlider = audioPlayer.querySelector(".controls .volume-slider");
+volumeSlider.addEventListener('click', e => {
+  const sliderWidth = window.getComputedStyle(volumeSlider).width;
+  const newVolume = e.offsetX / parseInt(sliderWidth);
+  audio.volume = newVolume;
+  audioPlayer.querySelector(".controls .volume-percentage").style.width = newVolume * 100 + '%';
+}, false)
+
+//check audio percentage and update time accordingly
+setInterval(() => {
+  const progressBar = audioPlayer.querySelector(".progress");
+  progressBar.style.width = audio.currentTime / audio.duration * 100 + "%";
+  audioPlayer.querySelector(".time .current").textContent = getTimeCodeFromNum(
+    audio.currentTime
+  );
+}, 500);
+
+//toggle between playing and pausing on button click
+const playBtn = audioPlayer.querySelector(".controls .toggle-play");
+playBtn.addEventListener(
+  "click",
+  () => {
+    if (audio.paused) {
+      playBtn.classList.remove("play");
+      playBtn.classList.add("pause");
+      audio.play();
+    } else {
+      playBtn.classList.remove("pause");
+      playBtn.classList.add("play");
+      audio.pause();
+    }
+  },
+  false
+);
+
+audioPlayer.querySelector(".volume-button").addEventListener("click", () => {
+  const volumeEl = audioPlayer.querySelector(".volume-container .volume");
+  audio.muted = !audio.muted;
+  if (audio.muted) {
+    volumeEl.classList.remove("icono-volumeMedium");
+    volumeEl.classList.add("icono-volumeMute");
+  } else {
+    volumeEl.classList.add("icono-volumeMedium");
+    volumeEl.classList.remove("icono-volumeMute");
+  }
+});
+
+//turn 128 seconds into 2:08
+function getTimeCodeFromNum(num) {
+  let seconds = parseInt(num);
+  let minutes = parseInt(seconds / 60);
+  seconds -= minutes * 60;
+  const hours = parseInt(minutes / 60);
+  minutes -= hours * 60;
+
+  if (hours === 0) return `${minutes}:${String(seconds % 60).padStart(2, 0)}`;
+  return `${String(hours).padStart(2, 0)}:${minutes}:${String(
+    seconds % 60
+  ).padStart(2, 0)}`;
+}
