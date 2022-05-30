@@ -205,21 +205,21 @@ input, select, textarea {
 	}
 
 	h2 {
-		font-size: 2rem;
+		font-size: 2.1rem;
 		line-height: 1.4;
 		letter-spacing: 0.5rem;
 	}
 
 	h3 {
-		font-size: 1.5rem;
+		font-size: 1.75rem;
 	}
 
 	h4 {
-		font-size: 1rem;
+		font-size: 1.5rem;
 	}
 
 	h5 {
-		font-size: 0.7rem;
+		font-size: 1rem;
 	}
 
 	h6 {
@@ -1452,6 +1452,7 @@ input, select, textarea {
 
 			.projectLink{
 				transition:.25s;
+				cursor: pointer;
 			}
 			.projectLink:hover{
 				color:rgb(0,255,153);
@@ -1512,6 +1513,21 @@ input, select, textarea {
 					width: 50%;
 				}
 
+				.compInfoContainer p {
+					text-align: left;
+					padding-top: 1em;
+					text-indent: 1em;
+				}
+
+
+		.resumeHead{
+			border-bottom: #ffffff 1px solid;
+			width: max-content;
+		}
+
+		#trumpet h4{
+			font-size: 1.25em;
+		}
 
 		@media screen and (max-width: 980px) {
 
@@ -1725,6 +1741,7 @@ input, select, textarea {
 		width: 100%;
 		max-width: 100%;
 		margin-top: 2rem;
+		margin-bottom: -2rem;
 		text-align: center;
 	}
 
@@ -1757,13 +1774,17 @@ input, select, textarea {
 		}
 
 
+		h3.projectName{
+			margin-bottom: 0;
+		}
+
 
 
 		/* Audio Player */
 
 		.audio-player {
 			height: 50px;
-			width: 350px;
+			width: 100%;
 			background: #444;
 			box-shadow: 0 0 20px 0 #000a;
 			font-family: arial;
@@ -1790,7 +1811,7 @@ input, select, textarea {
 			display: flex;
 			justify-content: space-between;
 			align-items: stretch;
-			padding: 0 20px;
+			padding: 0 10px;
 		  }
 		  .audio-player .controls > * {
 			display: flex;
@@ -1852,9 +1873,6 @@ input, select, textarea {
 			display: flex;
 			align-items: center;
 		  }
-		  .audio-player .controls .volume-container .volume-button .volume {
-			transform: scale(0.7);
-		  }
 		  .audio-player .controls .volume-container .volume-slider {
 			position: absolute;
 			left: -3px;
@@ -1875,3 +1893,9 @@ input, select, textarea {
 			left: -123px;
 			width: 120px;
 		  }
+
+/* Generic */
+
+.underline{
+	text-decoration: underline;
+}
