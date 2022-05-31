@@ -443,7 +443,6 @@ const audio = new Audio(
 	//   Place Audio URL Here
   "https://feeds.soundcloud.com/stream/1277956924-james-jewson-584932371-piano-suite-for-laura-mvt-1.mp3"
 );
-//credit for song: Adrian kreativaweb@gmail.com
 
 console.dir(audio);
 
