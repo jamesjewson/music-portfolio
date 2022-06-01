@@ -1529,6 +1529,15 @@ input, select, textarea {
 			font-size: 1.25em;
 		}
 
+		#trumpet p{
+			text-indent: 1em;
+		}
+
+		.largeName{
+			font-size: 1.5em;
+			font-weight: bold;
+		}
+
 		@media screen and (max-width: 980px) {
 
 			#header .content p br {
@@ -1898,4 +1907,7 @@ input, select, textarea {
 
 .underline{
 	text-decoration: underline;
+}
+.italics{
+	font-style: italic;
 }
