@@ -396,21 +396,32 @@
 			}
 
 			
-
+//Show/Hide composition PDFs
 
 $('#lauraSuite').click(function(){
 
 		// $(".pdfObject").hide()
-		if($(".pdfObject").hasClass("seeHide")){
-			$(".pdfObject").removeClass("seeHide")
+		if($("#suiteObject").hasClass("seeHide")){
+			$("#suiteObject").removeClass("seeHide")
 		}else	
-			$(".pdfObject").addClass("seeHide")
+			$("#suiteObject").addClass("seeHide")
 
+});
+$('#nocturne').click(function(){
 
-    // load_track = $(this).attr('data-location');//gets me the url of the new track
+		// $(".pdfObject").hide()
+		if($("#nocturneObject").hasClass("seeHide")){
+			$("#nocturneObject").removeClass("seeHide")
+		}else	
+			$("#nocturneObject").addClass("seeHide")
+});
+$('#prelude1').click(function(){
 
-    // change_track(load_track);// function to change the track of the loaded audio player without page refresh preferred...
-
+		// $(".pdfObject").hide()
+		if($("#prelude1Object").hasClass("seeHide")){
+			$("#prelude1Object").removeClass("seeHide")
+		}else	
+			$("#prelude1Object").addClass("seeHide")
 });
 
 
@@ -438,13 +449,18 @@ $('#lauraSuite').click(function(){
 // - Be able to grab a custom title instead of "Music Song"
 // - Hover over sliders to see preview of timestamp/volume change
 
+
+//if hasClass "suite-1", const audio = X, if hasclass "nocturne", etc
+
+
+
 const audioPlayer = document.querySelector(".audio-player");
 const audio = new Audio(
 	//   Place Audio URL Here
   "https://feeds.soundcloud.com/stream/1277956924-james-jewson-584932371-piano-suite-for-laura-mvt-1.mp3"
 );
 
-console.dir(audio);
+// console.dir(audio);
 
 audio.addEventListener(
   "loadeddata",
