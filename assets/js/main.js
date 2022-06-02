@@ -425,42 +425,84 @@ $('#prelude1').click(function(){
 });
 
 
-		// Initialize.
-
-			// Hide main, articles.
-				$main.hide();
-				$main_articles.hide();
-
-			// Initial article.
-				if (location.hash != ''
-				&&	location.hash != '#')
-					$window.on('load', function() {
-						$main._show(location.hash.substr(1), true);
-					});
-
-})(jQuery);
-
-
-
-// Audio Player
-// Possible improvements:
-// - Change timeline and volume slider into input sliders, reskinned
-// - Change into Vue or React component
-// - Be able to grab a custom title instead of "Music Song"
-// - Hover over sliders to see preview of timestamp/volume change
-
-
-//if hasClass "suite-1", const audio = X, if hasclass "nocturne", etc
-
-
+/////////////////////////////////////
+///////////Music Player Stuff////////
+/////////////////////////////////////
 
 const audioPlayer = document.querySelector(".audio-player");
-const audio = new Audio(
-	//   Place Audio URL Here
-  "https://feeds.soundcloud.com/stream/1277956924-james-jewson-584932371-piano-suite-for-laura-mvt-1.mp3"
-);
+let audio = new Audio("https://feeds.soundcloud.com/stream/1279938469-james-jewson-584932371-ourpresentationwillbeginshortl.mp3");
+audioPlayer.querySelector(".name").textContent = "OurPresentationWillBeginShortly"
+//Event Liseners
+$('#OurPresentationWillBeginShortly').on('click', function(event) {
+	audio.src="https://feeds.soundcloud.com/stream/1279938469-james-jewson-584932371-ourpresentationwillbeginshortl.mp3"
+	audioPlayer.querySelector(".name").textContent = "OurPresentationWillBeginShortly"
+	playBtn.classList.remove("play");
+	playBtn.classList.add("pause");
+	audio.play();
+});
+$('#persianVersion').on('click', function(event) {
+	audio.src="https://feeds.soundcloud.com/stream/1279938463-james-jewson-584932371-persian-version.mp3"
+	audioPlayer.querySelector(".name").textContent = "Persian Version"
+	playBtn.classList.remove("play");
+	playBtn.classList.add("pause");
+	audio.play();
+});
+$('#lateNight').on('click', function(event) {
+	audio.src="https://feeds.soundcloud.com/stream/1279938280-james-jewson-584932371-late-night.mp3"
+	audioPlayer.querySelector(".name").textContent = "Late Night"
+	playBtn.classList.remove("play");
+	playBtn.classList.add("pause");
+	audio.play();
+});
+$('#4-28_2').on('click', function(event) {
+	audio.src="https://feeds.soundcloud.com/stream/1279938160-james-jewson-584932371-4-28-2.mp3"
+	audioPlayer.querySelector(".name").textContent = "4-28_2"
+	playBtn.classList.remove("play");
+	playBtn.classList.add("pause");
+	audio.play();
+});
+$('#psalm').on('click', function(event) {
+	// audio.src=""
+});
+$('#interlude1').on('click', function(event) {
+	audio.src="https://feeds.soundcloud.com/stream/1279938154-james-jewson-584932371-interlude-1.mp3"
+	audioPlayer.querySelector(".name").textContent = "Interlude 1"
+	playBtn.classList.remove("play");
+	playBtn.classList.add("pause");
+	audio.play();
+});
+$('#gumby').on('click', function(event) {
+	audio.src="https://feeds.soundcloud.com/stream/1279938142-james-jewson-584932371-gumby-enjoys-the-rain.mp3"
+	audioPlayer.querySelector(".name").textContent = "Gumby Enjoys the Rain"
+	playBtn.classList.remove("play");
+	playBtn.classList.add("pause");
+	audio.play();
+});
+$('#sunshine').on('click', function(event) {
+	// audio.src=""
+});
+$('#interlude2').on('click', function(event) {
+	audio.src="https://feeds.soundcloud.com/stream/1279938136-james-jewson-584932371-interlude-2.mp3"
+	audioPlayer.querySelector(".name").textContent = "Interlude 2"
+	playBtn.classList.remove("play");
+	playBtn.classList.add("pause");
+	audio.play();
+});
+$('#223TychoStreet').on('click', function(event) {
+	audio.src="https://feeds.soundcloud.com/stream/1279938100-james-jewson-584932371-223-tycho-street.mp3"
+	audioPlayer.querySelector(".name").textContent = "223 Tycho Street"
+	playBtn.classList.remove("play");
+	playBtn.classList.add("pause");
+	audio.play();
+});
+$('#postlude').on('click', function(event) {
+	// audio.src=""
+});
+
+
 
 // console.dir(audio);
+
 
 audio.addEventListener(
   "loadeddata",
@@ -542,3 +584,55 @@ function getTimeCodeFromNum(num) {
     seconds % 60
   ).padStart(2, 0)}`;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		// Initialize.
+
+			// Hide main, articles.
+				$main.hide();
+				$main_articles.hide();
+
+			// Initial article.
+				if (location.hash != ''
+				&&	location.hash != '#')
+					$window.on('load', function() {
+						$main._show(location.hash.substr(1), true);
+					});
+
+})(jQuery);
+
+
+
+// Audio Player
+// Possible improvements:
+// - Change timeline and volume slider into input sliders, reskinned
+// - Change into Vue or React component
+// - Be able to grab a custom title instead of "Music Song"
+// - Hover over sliders to see preview of timestamp/volume change
+
+
+//if hasClass "suite-1", const audio = X, if hasclass "nocturne", etc
+
+
+
