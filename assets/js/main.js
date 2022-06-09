@@ -441,7 +441,7 @@ $('#OurPresentationWillBeginShortly').on('click', function(event) {
 	audio.play();
 });
 $('#persianVersion').on('click', function(event) {
-	audio.src="https://feeds.soundcloud.com/stream/1279938463-james-jewson-584932371-persian-version.mp3"
+	audio.src="https://feeds.soundcloud.com/stream/1284288073-james-jewson-584932371-persian-version.mp3"
 	audioPlayer.querySelector(".name").textContent = "Persian Version"
 	playBtn.classList.remove("play");
 	playBtn.classList.add("pause");
