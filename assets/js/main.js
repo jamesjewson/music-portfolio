@@ -428,6 +428,7 @@ $('#prelude1').click(function(){
 /////////////////////////////////////
 ///////////Music Player Stuff////////
 /////////////////////////////////////
+//Use RSS feed?
 
 const audioPlayer = document.querySelector(".audio-player");
 let audio = new Audio("https://feeds.soundcloud.com/stream/1279938469-james-jewson-584932371-ourpresentationwillbeginshortl.mp3");
