@@ -317,11 +317,12 @@
 				//Set Scrolldown WIP
 				//	totalScrollDown = 0;
 				// Article visible? Hide.
+				if( $(event.target).hasClass('keepArticle')){
+					// do nothing
+				}else{
 					if ($body.hasClass('is-article-visible'))
-						$main._hide(true);
-
-					
-
+					$main._hide(true);
+				}
 			});
 
 			$window.on('keyup', function(event) {
@@ -439,6 +440,7 @@ $('#OurPresentationWillBeginShortly').on('click', function(event) {
 	audioPlayer.querySelector(".name").textContent = "OurPresentationWillBeginShortly"
 	playBtn.classList.remove("play");
 	playBtn.classList.add("pause");
+	audioPlayer.classList.remove("hidden")
 	audio.play();
 });
 $('#persianVersion').on('click', function(event) {
@@ -446,6 +448,8 @@ $('#persianVersion').on('click', function(event) {
 	audioPlayer.querySelector(".name").textContent = "Persian Version"
 	playBtn.classList.remove("play");
 	playBtn.classList.add("pause");
+	audioPlayer.classList.remove("hidden")
+
 	audio.play();
 });
 $('#lateNight').on('click', function(event) {
@@ -453,6 +457,8 @@ $('#lateNight').on('click', function(event) {
 	audioPlayer.querySelector(".name").textContent = "Late Night"
 	playBtn.classList.remove("play");
 	playBtn.classList.add("pause");
+	audioPlayer.classList.remove("hidden")
+
 	audio.play();
 });
 $('#4-28_2').on('click', function(event) {
@@ -460,6 +466,8 @@ $('#4-28_2').on('click', function(event) {
 	audioPlayer.querySelector(".name").textContent = "4-28_2"
 	playBtn.classList.remove("play");
 	playBtn.classList.add("pause");
+	audioPlayer.classList.remove("hidden")
+
 	audio.play();
 });
 $('#psalm').on('click', function(event) {
@@ -470,6 +478,8 @@ $('#interlude1').on('click', function(event) {
 	audioPlayer.querySelector(".name").textContent = "Interlude 1"
 	playBtn.classList.remove("play");
 	playBtn.classList.add("pause");
+	audioPlayer.classList.remove("hidden")
+
 	audio.play();
 });
 $('#gumby').on('click', function(event) {
@@ -477,6 +487,8 @@ $('#gumby').on('click', function(event) {
 	audioPlayer.querySelector(".name").textContent = "Gumby Enjoys the Rain"
 	playBtn.classList.remove("play");
 	playBtn.classList.add("pause");
+	audioPlayer.classList.remove("hidden")
+
 	audio.play();
 });
 $('#sunshine').on('click', function(event) {
@@ -487,6 +499,8 @@ $('#interlude2').on('click', function(event) {
 	audioPlayer.querySelector(".name").textContent = "Interlude 2"
 	playBtn.classList.remove("play");
 	playBtn.classList.add("pause");
+	audioPlayer.classList.remove("hidden")
+
 	audio.play();
 });
 $('#223TychoStreet').on('click', function(event) {
@@ -494,6 +508,8 @@ $('#223TychoStreet').on('click', function(event) {
 	audioPlayer.querySelector(".name").textContent = "223 Tycho Street"
 	playBtn.classList.remove("play");
 	playBtn.classList.add("pause");
+	audioPlayer.classList.remove("hidden")
+
 	audio.play();
 });
 $('#postlude').on('click', function(event) {
@@ -588,9 +604,12 @@ function getTimeCodeFromNum(num) {
 
 
 
-
-
-
+$('.close-audio').on('click', function(event) {
+	audioPlayer.classList.add("hidden")
+	playBtn.classList.remove("pause");
+    playBtn.classList.add("play");
+	audio.pause();
+})
 
 
 

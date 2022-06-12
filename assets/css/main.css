@@ -1793,8 +1793,9 @@ input, select, textarea {
 		/* Audio Player */
 
 		.audio-player {
-			height: 50px;
-			width: 75%;
+			position: fixed;
+			height: 3rem;
+			width: 100%;
 			background: #444;
 			box-shadow: 0 0 20px 0 #000a;
 			font-family: arial;
@@ -1803,10 +1804,8 @@ input, select, textarea {
 			overflow: hidden;
 			display: grid;
 			grid-template-rows: 6px auto;
-			margin-left: auto;
-			margin-right: auto;
-			margin-top: 1em;
-			margin-bottom: 1em;
+			bottom: 0;
+			z-index: 3;
 		  }
 		  .audio-player .timeline {
 			background: white;
@@ -1822,10 +1821,15 @@ input, select, textarea {
 			transition: 0.25s;
 		  }
 		  .audio-player .controls {
+			width: 100%;
+			max-width: 750px;
 			display: flex;
-			justify-content: space-between;
+			justify-content: space-around;
 			align-items: stretch;
 			padding: 0 10px;
+			justify-items: center;
+			margin-left: auto;
+			margin-right: auto;
 		  }
 		  .audio-player .controls > * {
 			display: flex;
@@ -1907,6 +1911,21 @@ input, select, textarea {
 			left: -123px;
 			width: 120px;
 		  }
+		  .close-audio{
+			position: fixed;
+			z-index: 3;
+			right:0;
+			padding-top: 11px;
+			padding-right: 4px;
+		  }
+		  .close-audio:hover{
+			cursor: pointer;
+			color: rgb(0,255,153);
+		  }
+		  .hidden{
+			display:none;
+		  }
+
 
 
 	ol.trackListings li:hover{
