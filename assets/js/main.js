@@ -406,7 +406,7 @@ $('#nocturne').click(function(){
 		$("#nocturneObject").toggleClass("seeHide")
 });
 $('#prelude1').click(function(){
-	$("#prelude1").toggleClass("seeHide")
+	$("#prelude1Object").toggleClass("seeHide")
 });
 
 
