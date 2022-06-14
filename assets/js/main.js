@@ -434,6 +434,7 @@ $('#persianVersion').on('click', function(event) {
 	playBtn.classList.remove("play");
 	playBtn.classList.add("pause");
 	audioPlayer.classList.remove("hidden")
+	audioPlayer.classList.add("audioRise")
 
 	audio.play();
 });
@@ -443,6 +444,7 @@ $('#lateNight').on('click', function(event) {
 	playBtn.classList.remove("play");
 	playBtn.classList.add("pause");
 	audioPlayer.classList.remove("hidden")
+	audioPlayer.classList.add("audioRise")
 
 	audio.play();
 });
@@ -452,6 +454,7 @@ $('#4-28_2').on('click', function(event) {
 	playBtn.classList.remove("play");
 	playBtn.classList.add("pause");
 	audioPlayer.classList.remove("hidden")
+	audioPlayer.classList.add("audioRise")
 
 	audio.play();
 });
@@ -464,6 +467,7 @@ $('#interlude1').on('click', function(event) {
 	playBtn.classList.remove("play");
 	playBtn.classList.add("pause");
 	audioPlayer.classList.remove("hidden")
+	audioPlayer.classList.add("audioRise")
 
 	audio.play();
 });
@@ -472,7 +476,9 @@ $('#gumby').on('click', function(event) {
 	audioPlayer.querySelector(".name").textContent = "Gumby Enjoys the Rain"
 	playBtn.classList.remove("play");
 	playBtn.classList.add("pause");
-	audioPlayer.classList.remove("hidden")
+	audioPlayer.classList.remove("hidden")	
+	audioPlayer.classList.add("audioRise")
+
 
 	audio.play();
 });
@@ -485,6 +491,7 @@ $('#interlude2').on('click', function(event) {
 	playBtn.classList.remove("play");
 	playBtn.classList.add("pause");
 	audioPlayer.classList.remove("hidden")
+	audioPlayer.classList.add("audioRise")
 
 	audio.play();
 });
@@ -494,6 +501,7 @@ $('#223TychoStreet').on('click', function(event) {
 	playBtn.classList.remove("play");
 	playBtn.classList.add("pause");
 	audioPlayer.classList.remove("hidden")
+	audioPlayer.classList.add("audioRise")
 
 	audio.play();
 });
