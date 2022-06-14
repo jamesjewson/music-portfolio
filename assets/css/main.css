@@ -1437,6 +1437,14 @@ input, select, textarea {
 				transition: border ease-out .25s;
 			}
 
+			.pdfImg{
+				max-width: 50%;
+				float: right;
+				margin-left: 0.5em;
+				margin-bottom: 0.1em;
+			}
+
+		
 			
 			
 		
@@ -1453,6 +1461,7 @@ input, select, textarea {
 			.projectLink{
 				transition:.25s;
 				cursor: pointer;
+				margin-top: 0.5em;
 			}
 			.projectLink:hover{
 				color:rgb(0,255,153);
@@ -1509,9 +1518,7 @@ input, select, textarea {
 				display: flex;
 				flex-direction: row;
 			}
-				.compInfoContainerInner{
-					width: 50%;
-				}
+
 
 				.compInfoContainer p {
 					text-align: left;
@@ -1519,6 +1526,7 @@ input, select, textarea {
 					text-indent: 1em;
 					margin-bottom: 0em;
 				}
+				
 
 
 		.resumeHead{
@@ -1925,6 +1933,28 @@ input, select, textarea {
 		  .hidden{
 			display:none;
 		  }
+
+
+		  .audioRise{
+			animation-name: audioRise;
+			animation-duration: 1s;
+			/* transform:translateY(5em); */
+		}
+		  .audioFall{
+			animation-name: audioFall;
+			animation-duration: 1s;
+			/* transform:translateY(5em); */
+		}
+		
+		
+		@keyframes audioRise {
+			from {transform:translateY(5em);}
+			to {transform:translateY(0em);}
+		}
+		@keyframes audioFall {
+			from {transform:translateY(0em);}
+			to {transform:translateY(5em);}
+		}
 
 
 

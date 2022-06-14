@@ -400,29 +400,13 @@
 //Show/Hide composition PDFs
 
 $('#lauraSuite').click(function(){
-
-		// $(".pdfObject").hide()
-		if($("#suiteObject").hasClass("seeHide")){
-			$("#suiteObject").removeClass("seeHide")
-		}else	
-			$("#suiteObject").addClass("seeHide")
-
+		$("#suiteObject").toggleClass("seeHide")
 });
 $('#nocturne').click(function(){
-
-		// $(".pdfObject").hide()
-		if($("#nocturneObject").hasClass("seeHide")){
-			$("#nocturneObject").removeClass("seeHide")
-		}else	
-			$("#nocturneObject").addClass("seeHide")
+		$("#nocturneObject").toggleClass("seeHide")
 });
 $('#prelude1').click(function(){
-
-		// $(".pdfObject").hide()
-		if($("#prelude1Object").hasClass("seeHide")){
-			$("#prelude1Object").removeClass("seeHide")
-		}else	
-			$("#prelude1Object").addClass("seeHide")
+	$("#prelude1").toggleClass("seeHide")
 });
 
 
@@ -441,6 +425,7 @@ $('#OurPresentationWillBeginShortly').on('click', function(event) {
 	playBtn.classList.remove("play");
 	playBtn.classList.add("pause");
 	audioPlayer.classList.remove("hidden")
+	audioPlayer.classList.add("audioRise")
 	audio.play();
 });
 $('#persianVersion').on('click', function(event) {
@@ -556,7 +541,7 @@ setInterval(() => {
   audioPlayer.querySelector(".time .current").textContent = getTimeCodeFromNum(
     audio.currentTime
   );
-}, 500);
+}, 50);
 
 //toggle between playing and pausing on button click
 const playBtn = audioPlayer.querySelector(".controls .toggle-play");
@@ -605,7 +590,12 @@ function getTimeCodeFromNum(num) {
 
 
 $('.close-audio').on('click', function(event) {
-	audioPlayer.classList.add("hidden")
+
+	audioPlayer.classList.add("audioFall")
+	setTimeout(()=>{
+		audioPlayer.classList.add("hidden")	
+		audioPlayer.classList.remove("audioFall")	
+	}, 1000)
 	playBtn.classList.remove("pause");
     playBtn.classList.add("play");
 	audio.pause();
